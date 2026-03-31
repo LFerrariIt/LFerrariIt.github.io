@@ -119,6 +119,10 @@
   #RESET
 \*-----------------------------------*/
 
+body {
+  color: var(--white-1);
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
