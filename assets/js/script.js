@@ -64,20 +64,22 @@ overlay.addEventListener("click", testimonialsModalFunc);
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-select-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
+if (select && selectValue && selectItems.length) {
 
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
+  select.addEventListener("click", function () {
+    elementToggleFunc(this);
   });
+
+  selectItems.forEach(item => {
+    item.addEventListener("click", function () {
+      let selectedValue = this.innerText.toLowerCase();
+      selectValue.innerText = this.innerText;
+      elementToggleFunc(select);
+      filterFunc(selectedValue);
+    });
+  });
+
 }
 
 // filter variables
