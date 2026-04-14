@@ -149,8 +149,7 @@ const pages = document.querySelectorAll("[data-page]");
 navigationLinks.forEach(link => {
   link.addEventListener("click", function () {
 
-    const selectedPage = this.innerText.trim().toLowerCase();
-
+    const selectedPage = this.dataset.page;
     // toggle pages
     pages.forEach(page => {
       if (page.dataset.page === selectedPage) {
@@ -169,4 +168,4 @@ navigationLinks.forEach(link => {
     window.scrollTo(0, 0);
   });
 });
-}
+
